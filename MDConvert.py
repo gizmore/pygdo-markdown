@@ -22,5 +22,8 @@ class MDConvert:
     def to_html(self, text):
         return markdown.markdown(self._text)
 
+    def to_telegram(self, text):
+        return Strings.html_to_text(self.to_html(self._text))
+
     def to_irc(self, text):
         return Strings.html_to_text(self.to_html(self._text))
