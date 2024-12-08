@@ -20,10 +20,13 @@ class MDConvert:
             return self.to_html(self._text)
 
     def to_html(self, text):
-        return markdown.markdown(self._text)
+        return markdown.markdown(text)
 
     def to_telegram(self, text):
-        return Strings.html_to_text(self.to_html(self._text))
+        return Strings.html_to_text(self.to_html(text))
 
     def to_irc(self, text):
-        return Strings.html_to_text(self.to_html(self._text))
+        return Strings.html_to_text(self.to_html(text))
+
+    def to_txt(self, text):
+        return Strings.html_to_text(self.to_html(text))
