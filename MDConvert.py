@@ -1,7 +1,7 @@
 import markdown
 
 from gdo.base.Render import Mode
-from gdo.base.Util import Strings
+from gdo.base.Util import Strings, html
 
 
 class MDConvert:
@@ -23,7 +23,7 @@ class MDConvert:
         return markdown.markdown(text)
 
     def to_telegram(self, text):
-        return Strings.html_to_text(self.to_html(text))
+        return html(Strings.html_to_text(self.to_html(text)))
 
     def to_irc(self, text):
         return Strings.html_to_text(self.to_html(text))
