@@ -17,13 +17,13 @@ class MDConvert:
             if method := getattr(self, method_name):
                 return method(self._text)
         except AttributeError:
-            return self.to_html(self._text)
+            return self.to_txt(self._text)
 
     def to_html(self, text):
         return markdown.markdown(text)
 
     def to_telegram(self, text):
-        return html(Strings.html_to_text(self.to_html(text)))
+        return Strings.html_to_text(self.to_html(text))
 
     def to_irc(self, text):
         return Strings.html_to_text(self.to_html(text))
