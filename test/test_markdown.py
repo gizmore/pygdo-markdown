@@ -14,7 +14,7 @@ class GDO_Foo(GDO):
 
     def gdo_columns(self) -> list[GDT]:
         return [
-            GDT_Message('foo_msg'),
+            GDT_Message('foo_msg').label_raw('MSG'),
         ]
 
 
@@ -39,7 +39,8 @@ class MarkdownTest(GDOTestCase):
         self.assertIn('<a href="https://www.wechall', html, "markdown editor does not render html #3")
         self.assertIn('ChATTACA</a>', html, "markdown editor does not render html #4")
         markdown = gdt.render(Mode.MARKDOWN)
-        self.assertIn('# Title', markdown, "markdown rendering failed.")
+        self.assertIn('# Title', markdown, "markdown rendering failed #1.")
+        self.assertIn('[ChATTACA](https://www.wechall.net/challenge/gizmore/chattaca)', markdown, "markdown rendering failed #2.")
 
 
 if __name__ == '__main__':
