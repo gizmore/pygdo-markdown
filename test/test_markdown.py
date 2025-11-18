@@ -33,12 +33,12 @@ class MarkdownTest(GDOTestCase):
             'foo_msg_editor': 'markdown',
         }).insert()
         gdt = foo.column('foo_msg')
-        html = gdt.render(Mode.HTML)
+        html = gdt.render(Mode.html)
         self.assertIn('<h1>Title</h1>', html, "markdown editor does not render html #1")
         self.assertIn('<p>paragraph', html, "markdown editor does not render html #2")
         self.assertIn('<a href="https://www.wechall', html, "markdown editor does not render html #3")
         self.assertIn('ChATTACA</a>', html, "markdown editor does not render html #4")
-        markdown = gdt.render(Mode.MARKDOWN)
+        markdown = gdt.render(Mode.markdown)
         self.assertIn('# Title', markdown, "markdown rendering failed #1.")
         self.assertIn('[ChATTACA](https://www.wechall.net/challenge/gizmore/chattaca)', markdown, "markdown rendering failed #2.")
 
