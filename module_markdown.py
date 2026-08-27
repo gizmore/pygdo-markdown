@@ -10,5 +10,9 @@ class module_markdown(GDO_Module):
             'message',
         ]
 
+    async def gdo_install(self):
+        from gdo.message.module_message import module_message
+        await module_message.instance().save_config_val('default_editor', 'markdown')
+
     def gdo_init(self):
         GDT_Editor.register(MarkdownEditor)
